@@ -27,11 +27,7 @@ metacoder_creating_tax_tree <- function(phyloseq_object, tax_level, Kingdom) {
   tax_table(ps.bac.filt) = gsub(pattern = "o__", replace= "", x = tax_table(ps.bac.filt))
   }
   ps.bac.filt -> ps
-  #sample_data(ps)$Time <- gsub("1_day_post_steam", "Early", x = sample_data(ps)$Time)
-  #sample_data(ps)$Time <- gsub("1_month_post_steam", "Early", x = sample_data(ps)$Time)
-  #sample_data(ps)$Time <- gsub("2_months_post_steam", "Late", x = sample_data(ps)$Time)
-  #sample_data(ps)$Time <- gsub("5_months_post_steam", "Late", x = sample_data(ps)$Time)
-  #sample_data(ps)$Time <- as.factor(sample_data(ps)$Time)
+  
   print("Loading Phyloseq object...")
   ps_filter = phyloseq_filter_prevalence(ps, threshold_condition = "OR",
                                          abund.trh = 10,abund.type = "total",
