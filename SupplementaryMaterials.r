@@ -21,3 +21,22 @@ ggplot(alpha_data, aes(x=factor(SampleID, level = c("2cm.1D", "15cm.1D",
   stat_summary(fun=mean, geom="bar", fill="#84ac4f") + 
   stat_summary(geom = "errorbar", width=0.4) + theme_bw() +
   xlab("") + ylab("Fungi Chao1")
+
+##Table S2, S3 - alpha diversity of each community
+bac_alpha <- estimate_richness(ps.bac.2)
+fun_alpha <- estimate_richness(ps.fun.2)
+
+##Table S4 - PErmutational multivariate analysis of variance and beta-dispersion
+ibrary(vegan)
+metadata <- as(sample_data(ps.bac.rare), "data.frame")
+adonis(phyloseq::distance(ps.bac.rare, method="bray") ~ SampleID,
+       data = metadata)
+permutest(betadisper(phyloseq::distance(ps.bac.rare, method="bray"), metadata$SampleID), permutations= 99)
+
+metadata <- as(sample_data(ps.fun.rare), "data.frame")
+adonis(phyloseq::distance(ps.fun.rare, method="bray") ~ SampleID,
+       data = metadata)
+permutest(betadisper(phyloseq::distance(ps.fun.rare, method="bray"), metadata$SampleID), permutations= 99)
+
+
+
