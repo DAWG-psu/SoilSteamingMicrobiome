@@ -1,9 +1,9 @@
 ### Temporal and spatial dynamics of bacterial and fungal microbiomes in nursery soils post-steaming
 
-####1. Data Processing
+#### 1. Data Processing
 1. Sequence processing and filtering by DADA2 pipeline in R
 
-####2. Downstream Analyses
+#### 2. Downstream Analyses
 1. Community structure **(Figure 2)**
 2. Alpha diversity analysis **(Figure S1, Table S2, Table S3)**
 3. Beta diversity analysis **(Figure 3, Table S4)**
